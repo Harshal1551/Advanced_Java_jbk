@@ -44,6 +44,7 @@ public class IplService {
 		
 	}
 	
+	
 	// Add Player
 		public int addPlayer(Player p) {
 			ipldao = new IplDao();
@@ -56,14 +57,14 @@ public class IplService {
 			return ipldao.updateRuns(jerseyNo, runs);
 		}
 
-//		// Update Wickets
+	// Update Wickets
 		public int updateWickets(int jerseyNo, int wickets) {
 			ipldao = new IplDao();
 			return ipldao.updateWickets(jerseyNo, wickets);
 		}
 
 		
-//		// Delete Player
+		// Delete Player
 		public int deletePlayer(int jerseyNo) {
 			ipldao = new IplDao();
 			return ipldao.deletePlayer(jerseyNo);
