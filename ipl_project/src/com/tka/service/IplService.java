@@ -1,6 +1,7 @@
 package com.tka.service;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 import com.tka.dao.IplDao;
 import com.tka.entity.Player;
@@ -19,4 +20,17 @@ public class IplService {
 		return ipl_db;
 		
 	}
+	
+	
+	public List<Player> getGTPlayers() {
+
+        List<Player> allPlayers = ipldao.getAllPlayer();
+
+        return allPlayers.stream()
+                .filter(player -> player.getTname().equalsIgnoreCase("GT"))
+                .collect(Collectors.toList()); 
+        
+    }
+	
+	
 }

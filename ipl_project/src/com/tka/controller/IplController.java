@@ -14,7 +14,17 @@ public class IplController {
 		List<Player> allplayer = iplservice.getAllPlayers();
 		
 		allplayer.forEach(p -> System.out.println(p.getPname()));
+		
+		
+		System.out.println();
+		
+		System.out.println("GT Players:");
+		System.out.println("-----------------------------");
+		 List<Player> gtPlayers = iplservice.getGTPlayers();
 
+
+	        gtPlayers.forEach(System.out::println);
+	        
 	}
 
 }
