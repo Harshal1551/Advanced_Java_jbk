@@ -26,22 +26,27 @@ public class IplService {
 	
 	public List<Player> getGTPlayers() {
 
-        List<Player> allPlayers = ipldao.getAllPlayer();
+	    ipldao = new IplDao();
 
-        return allPlayers.stream()
-                .filter(player -> player.getTname().equalsIgnoreCase("GT"))
-                .collect(Collectors.toList()); 
-        
-    }
+	    List<Player> allPlayers = ipldao.getAllPlayer();
+
+	    return allPlayers.stream()
+	            .filter(p -> p.getTname().equalsIgnoreCase("GT"))
+	            .collect(Collectors.toList());
+
+	}
+	
 	
 	public List<Player> getRRPlayers() {
-		
-		List<Player> allPlayers = ipldao.getAllPlayer();
-		
-		return allPlayers.stream()
-				.filter(player -> player.getTname().equalsIgnoreCase("RR"))
-				.collect(Collectors.toList()); 
-		
+
+	    ipldao = new IplDao();
+
+	    List<Player> allPlayers = ipldao.getAllPlayer();
+
+	    return allPlayers.stream()
+	            .filter(p -> p.getTname().equalsIgnoreCase("RR"))
+	            .collect(Collectors.toList());
+
 	}
 	
 	
@@ -68,6 +73,14 @@ public class IplService {
 		public int deletePlayer(int jerseyNo) {
 			ipldao = new IplDao();
 			return ipldao.deletePlayer(jerseyNo);
+		}
+		
+		public Player searchPlayer(int jerseyNo) {
+
+		    ipldao = new IplDao();
+
+		    return ipldao.searchPlayer(jerseyNo);
+
 		}
 
 

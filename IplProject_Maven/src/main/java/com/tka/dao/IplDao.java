@@ -168,4 +168,41 @@ public class IplDao {
     }
     
     
+    
+    public Player searchPlayer(int jerseyNo) {
+
+        String query = "select * from player where jn=?";
+
+        try {
+
+            Class.forName(path);
+
+            conn = DriverManager.getConnection(url, un, pwd);
+
+            pst = conn.prepareStatement(query);
+
+            pst.setInt(1, jerseyNo);
+
+            rs = pst.executeQuery();
+
+            if (rs.next()) {
+
+                return new Player(
+                        rs.getInt(1),
+                        rs.getString(2),
+                        rs.getInt(3),
+                        rs.getInt(4),
+                        rs.getString(5));
+
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return null;
+
+    }
+    
+    
 }
